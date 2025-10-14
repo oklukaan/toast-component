@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toast Web Component • Demo</title>
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; }
+    body{
+      margin:0; padding:40px 24px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: canvas; color: canvastext;
+    }
+    .container{ max-width: 920px; margin: 0 auto; }
+    h1{ font-size: 28px; margin: 0 0 8px; }
+    p.lead{ margin: 0 0 24px; color: #64748b; }
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    button{
+      appearance: none;
+      border: 1px solid #e2e8f0;
+      padding: 10px 14px;
+      background: #fff;
+      color: #0f172a;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(2,6,23,.04);
+    }
+    button:hover{ border-color:#cbd5e1; box-shadow: 0 4px 12px rgba(2,6,23,.06); }
+    code{ background:#f1f5f9; padding:2px 6px; border-radius:6px; }
+  </style>
+  <script src="./toast.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Toast Web Component</h1>
+    <p class="lead">Aşağıdaki butonlarla farklı tiplerde <code>&lt;toast-message&gt;</code> gösterimini test edebilirsin.</p>
+
+    <div class="grid">
+      <button id="btn-success">Success</button>
+      <button id="btn-error">Error</button>
+      <button id="btn-warning">Warning</button>
+      <button id="btn-info-svg">Info + SVG Icon</button>
+      <button id="btn-sticky">Sticky (timeout: 0)</button>
+      <button id="btn-glyph">Custom Glyph (★)</button>
+      <button id="btn-wide">Custom Width (360px)</button>
+      <button id="btn-hide">Hide</button>
+    </div>
+  </div>
+
+  <toast-message id="toast"></toast-message>
+
+  <script>
+    const toast = document.getElementById('toast');
+
+    // Success
+    document.getElementById('btn-success').onclick = () => {
+      toast.show('Saved successfully', {
+        type: 'success',
+        extraHTML: 'Your changes are saved successfully.'
+      });
+    };
+
+    // Error
+    document.getElementById('btn-error').onclick = () => {
+      toast.show('Something went wrong', {
+        type: 'error',
+        extraHTML: 'Please try again in a few seconds.'
+      });
+    };
+
+    // Warning
+    document.getElementById('btn-warning').onclick = () => {
+      toast.show('Be careful', {
+        type: 'warning',
+        extraHTML: 'Username you entered looks invalid.'
+      });
+    };
+
+    // Info + özel SVG ikon (slot)
+    document.getElementById('btn-info-svg').onclick = () => {
+      toast.show('Heads up', {
+        type: 'info',
+        iconHTML: `
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M8 0a8 8 0 108 8 8.009 8.009 0 00-8-8zm1.25 3.75A1.25 1.25 0 118 2.5a1.25 1.25 0 011.25 1.25zM7 6h2v2.5l.75 2.5H6.25L7 8.5V6z"/>
+          </svg>`,
+        extraHTML: 'New settings available on your account.'
+      });
+    };
+
+    // Sticky (timeout: 0 => otomatik kapanmaz)
+    document.getElementById('btn-sticky').onclick = () => {
+      toast.show('Pinned toast', {
+        type: 'info',
+        timeout: 0,
+        extraHTML: 'This toast will stay until you close it.'
+      });
+    };
+
+    // Custom glyph (pseudo-ikon)
+    document.getElementById('btn-glyph').onclick = () => {
+      toast.show('Starred', {
+        type: 'success',
+        glyph: '★',
+        extraHTML: 'Custom glyph applied via CSS variable.'
+      });
+    };
+
+    // Custom width
+    document.getElementById('btn-wide').onclick = () => {
+      toast.show('Wider card', {
+        type: 'info',
+        width: '360px',
+        extraHTML: 'This toast uses a custom width.'
+      });
+    };
+
+    // Hide
+    document.getElementById('btn-hide').onclick = () => toast.hide();
+
+    // Event örnekleri
+    toast.addEventListener('toast:show', (e) => {
+      console.log('Toast opened:', e.detail);
+    });
+    toast.addEventListener('toast:hide', () => {
+      console.log('Toast closed');
+    });
+  </script>
+</body>
+</html>
