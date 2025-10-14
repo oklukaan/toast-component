@@ -49,7 +49,7 @@ Konum: varsayılan sağ-üst. Farklı konum için .toast’ın top/right değerl
 
 # Basit Demo
 
-$
+```html
 <button onclick="toast.show('Saved', { type:'success', extraHTML:'Done.' })">Success</button>
 <button onclick="toast.show('Error', { type:'error', extraHTML:'Try again.' })">Error</button>
 <button onclick="toast.hide()">Hide</button>
