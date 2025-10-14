@@ -57,6 +57,6 @@ Konum: varsayılan sağ-üst. Farklı konum için .toast’ın top/right değerl
 <toast-message id="toast"></toast-message>
 <script src="toast.js"></script>
 <script>const toast = document.getElementById('toast');</script>
-
-Lisans
+```
+# Lisans
 MIT © 2025 Kaan Okluçam
