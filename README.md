@@ -47,7 +47,7 @@ Tema mantığı: info bazdır; success/error/warning sadece rengi/ikonu override
 Erişilebilirlik: role="status", aria-live="polite", kapatma butonu.
 Konum: varsayılan sağ-üst. Farklı konum için .toast’ın top/right değerlerini override edebilirsin.
 
-Basit Demo
+# Basit Demo
 <button onclick="toast.show('Saved', { type:'success', extraHTML:'Done.' })">Success</button>
 <button onclick="toast.show('Error', { type:'error', extraHTML:'Try again.' })">Error</button>
 <button onclick="toast.hide()">Hide</button>
