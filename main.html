@@ -82,7 +82,6 @@
       });
     };
 
-    // Info + özel SVG ikon (slot)
     document.getElementById('btn-info-svg').onclick = () => {
       toast.show('Heads up', {
         type: 'info',
@@ -95,7 +94,6 @@
       });
     };
 
-    // Sticky (timeout: 0 => otomatik kapanmaz)
     document.getElementById('btn-sticky').onclick = () => {
       toast.show('Pinned toast', {
         type: 'info',
@@ -104,7 +102,7 @@
       });
     };
 
-    // Custom glyph (pseudo-ikon)
+    // Custom glyph (pseudo-icon)
     document.getElementById('btn-glyph').onclick = () => {
       toast.show('Starred', {
         type: 'success',
@@ -125,7 +123,7 @@
     // Hide
     document.getElementById('btn-hide').onclick = () => toast.hide();
 
-    // Event örnekleri
+    // Event example
     toast.addEventListener('toast:show', (e) => {
       console.log('Toast opened:', e.detail);
     });

@@ -102,7 +102,11 @@ class Toast extends HTMLElement {
   show(message, options = {}) {
     if (!this._inited) this.connectedCallback();
     const { timeout = 3000, color, textColor, width, height, extraHTML, className, iconHTML, glyph } = options;
-    if (glyph) this.toast.style.setProperty('--glyph', `"${glyph}"`);
+    if (glyph != null) {
+      this.toast.style.setProperty('--glyph', `"${glyph}"`);
+    } else {
+      this.toast.style.removeProperty('--glyph');
+    }
     if (iconHTML != null) {
       this._iconSlotHost.innerHTML = iconHTML;
       this.appendChild(this._iconSlotHost);
