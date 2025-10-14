@@ -8,7 +8,7 @@ Kurulum
 <toast-message id="toast"></toast-message>
 
 Kullanım
-<script>
+# <script>
   const t = document.getElementById('toast');
 
   // Basit
@@ -23,7 +23,7 @@ Kullanım
     iconHTML: '<svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">...</svg>',
     extraHTML: 'New settings available.'
   });
-</script>
+# </script>
 
 API
 | Seçenek     | Tip                                           | Varsayılan | Açıklama                                    |
