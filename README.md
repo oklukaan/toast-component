@@ -37,10 +37,11 @@ API
 | `className` | `string \| string[]`                          | –          | Ek sınıf(lar).                              |
 | `width`     | `string`                                      | `auto`     | Genişlik.                                   |
 | `height`    | `string`                                      | `auto`     | Yükseklik.                                  |
-t.hide()
 
+t.hide()
 Açık toast’ı kapatır.
-Notlar
+
+## Notlar
 
 Tema mantığı: info bazdır; success/error/warning sadece rengi/ikonu override eder.
 Erişilebilirlik: role="status", aria-live="polite", kapatma butonu.
