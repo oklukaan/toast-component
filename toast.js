@@ -31,7 +31,6 @@ class Toast extends HTMLElement {
         transition: opacity .28s ease, transform .28s ease;
         z-index:9999;
         pointer-events:none;
-        position:fixed;
       }
       .toast.show{ opacity:1; transform:translateY(0); pointer-events:auto; }
       .toast::before{
