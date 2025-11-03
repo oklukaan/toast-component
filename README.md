@@ -45,7 +45,7 @@ Açık toast’ı kapatır.
 
 Tema mantığı: info bazdır; success/error/warning sadece rengi/ikonu override eder.
 Erişilebilirlik: role="status", aria-live="polite", kapatma butonu.
-Konum: varsayılan sağ-üst. Farklı konum için .toast’ın top/right değerlerini override edebilirsin.
+Konum: varsayılan sağ-üst. Farklı konum için .toast’ın classname ile override edebilirsin.
 
 # Basit Demo
 
